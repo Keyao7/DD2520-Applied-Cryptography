@@ -92,7 +92,7 @@ Encrypt a bunch of stuff using your repeating-key XOR function. Encrypt your mai
 
 
 
-Question 6: Break repeating-key XOR
+**Question 6: Break repeating-key XOR**
 
 [There's a file here.](https://cryptopals.com/static/challenge-data/6.txt) It's been base64'd after being encrypted with repeating-key XOR.
 
@@ -130,5 +130,17 @@ This code is going to turn out to be surprisingly useful later on. Breaking repe
 
 
 
+**Question 7: AES in ECB mode**
 
+The Base64-encoded content [in this file](https://cryptopals.com/static/challenge-data/7.txt) has been encrypted via AES-128 in ECB mode under the key
+
+```txt
+"YELLOW SUBMARINE".
+```
+
+(case-sensitive, without the quotes; exactly 16 characters; I like "YELLOW SUBMARINE" because it's exactly 16 bytes long, and now you do too).
+
+Decrypt it. You know the key, after all.
+
+Easiest way: use OpenSSL::Cipher and give it AES-128-ECB as the cipher.
 
