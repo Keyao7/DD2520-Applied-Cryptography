@@ -156,3 +156,27 @@ Detect it.
 
 Remember that the problem with ECB is that it is stateless and deterministic; the same 16 byte plaintext block will always produce the same 16 byte ciphertext.
 
+
+
+# Set 2
+
+**Question 9: Implement PKCS#7 padding**
+
+A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
+
+One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize. The most popular padding scheme is called PKCS#7.
+
+So: pad any block to a specific block length, by appending the number of bytes of padding to the end of the block. For instance,
+
+```txt
+"YELLOW SUBMARINE"
+```
+
+. padded to 20 bytes would be:
+
+```txt
+"YELLOW SUBMARINE\x04\x04\x04\x04"
+```
+
+
+
