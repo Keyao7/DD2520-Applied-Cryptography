@@ -1,0 +1,50 @@
+#include <obliv.oh>
+#include "auction.h"
+
+
+void auction(void* args){
+  protocolIO *io = args;
+  obliv int b11 = feedOblivInt(io->buyer1Share, 1);
+  obliv int b12 = feedOblivInt(io->buyer1Share, 2);
+
+  obliv int b21 = feedOblivInt(io->buyer2Share, 1);
+  obliv int b22 = feedOblivInt(io->buyer2Share, 2);
+
+  obliv int b31 = feedOblivInt(io->buyer3Share, 1);
+  obliv int b32 = feedOblivInt(io->buyer3Share, 2);
+
+  obliv int s11 = feedOblivInt(io->seller1Share, 1);
+  obliv int s12 = feedOblivInt(io->seller1Share, 2);
+
+  obliv int s21 = feedOblivInt(io->seller2Share, 1);
+  obliv int s22 = feedOblivInt(io->seller2Share, 2);
+
+  obliv int s31 = feedOblivInt(io->seller3Share, 1);
+  obliv int s32 = feedOblivInt(io->seller3Share, 2);
+
+
+  obliv int b1 = b11 + b12;
+  obliv int b2 = b21 + b22;
+  obliv int b3 = b31 + b32;
+
+  obliv int s1 = s11 + s12;
+  obliv int s2 = s21 + s22;
+  obliv int s3 = s31 + s32;
+
+  obliv int R1 = 1;
+  obliv int R2 = 2;
+  obliv int R3 = 3;
+ 
+  obliv int C1 = (b1+s1)/2;
+  obliv int C2 = (b2+s2)/2;
+  obliv int C3 = (b3+s3)/2;
+
+  revealOblivInt(&(io->R1), R1, 0);
+  revealOblivInt(&(io->R2), R2, 0);
+  revealOblivInt(&(io->R3), R3, 0);
+
+  revealOblivInt(&(io->C1), C1, 0);
+  revealOblivInt(&(io->C2), C2, 0);
+  revealOblivInt(&(io->C3), C3, 0);
+
+}
